@@ -1,0 +1,23 @@
+
+<input id="red" type="text" value="175" class="dial" data-max="255"><span>Red</span>
+<input id="green" type="text" value="255" class="dial" data-max="255"><span>Green</span>
+<input id="blue" type="text" value="75" class="dial" data-max="255"><span>Blue</span>
+
+<div id="panel" style="height: 300px; width: 1000px; background-color: black;">
+
+</div>
+
+<script>
+    $(function() {
+        $(".dial").knob();
+    });
+
+    var red = $("#red").val();
+    var green = $("#green").val();
+    var blue = $("#blue").val();
+
+    $("#panel").css('background-color', "rgb(" +red+"," +green+ ","+blue+")");
+    console.log(red);
+    console.log(green);
+    console.log(blue);
+</script>
