@@ -1,8 +1,9 @@
 
-<input id="red" type="text" value="205" class="dial" data-max="255"><span>Red</span>
-<input id="green" type="text" value="205" class="dial" data-max="255"><span>Green</span>
-<input id="blue" type="text" value="55" class="dial" data-max="255"><span>Blue</span>
+<input id="red" type="text" value="0" class="dial" data-max="255"><span>Red</span>
+<input id="green" type="text" value="0" class="dial" data-max="255"><span>Green</span>
+<input id="blue" type="text" value="0" class="dial" data-max="255"><span>Blue</span>
 
+<h2 id="valor">rgba: (<span id="rojo">0</span>,<span id="verde"> 0</span>,<span id="azul"> 0</span>)</h2>
 <div id="panel" style="height: 300px; width: 1000px; background-color: black;">
 
 </div>
@@ -10,11 +11,20 @@
 <script>
     $(function() {
         $(".dial").knob({
-            'change' : function () {
+            'draw' : function () {
 
               var red = $("#red").val();
               var green = $("#green").val();
               var blue = $("#blue").val();
+
+              $("#rojo").text(red);
+              $("#rojo").css('color', "rgb(" +red+"," +0+ ","+0+")");
+
+              $("#verde").text(green);
+              $("#verde").css('color', "rgb(" +0+"," +green+ ","+0+")");
+
+              $("#azul").text(blue);
+              $("#azul").css('color', "rgb(" +0+"," +0+ ","+blue+")");
 
               $("#panel").css('background-color', "rgb(" +red+"," +green+ ","+blue+")");
 
