@@ -1,7 +1,7 @@
 
-<input id="red" type="text" value="175" class="dial" data-max="255"><span>Red</span>
-<input id="green" type="text" value="255" class="dial" data-max="255"><span>Green</span>
-<input id="blue" type="text" value="75" class="dial" data-max="255"><span>Blue</span>
+<input id="red" type="text" value="205" class="dial" data-max="255"><span>Red</span>
+<input id="green" type="text" value="205" class="dial" data-max="255"><span>Green</span>
+<input id="blue" type="text" value="55" class="dial" data-max="255"><span>Blue</span>
 
 <div id="panel" style="height: 300px; width: 1000px; background-color: black;">
 
@@ -9,15 +9,17 @@
 
 <script>
     $(function() {
-        $(".dial").knob();
+        $(".dial").knob({
+            'change' : function () {
+
+              var red = $("#red").val();
+              var green = $("#green").val();
+              var blue = $("#blue").val();
+
+              $("#panel").css('background-color', "rgb(" +red+"," +green+ ","+blue+")");
+
+            }
+        });
     });
 
-    var red = $("#red").val();
-    var green = $("#green").val();
-    var blue = $("#blue").val();
-
-    $("#panel").css('background-color', "rgb(" +red+"," +green+ ","+blue+")");
-    console.log(red);
-    console.log(green);
-    console.log(blue);
 </script>
